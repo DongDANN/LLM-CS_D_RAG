@@ -34,8 +34,18 @@ def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
 
+def get_api_key():
+    try:
+        import streamlit as st
+        if "GOOGLE_API_KEY" in st.secrets:
+            return st.secrets["GOOGLE_API_KEY"]
+    except Exception:
+        pass
+    return os.getenv("GOOGLE_API_KEY")
+
+
 def get_chain():
-    api_key = os.getenv("GOOGLE_API_KEY")
+    api_key = get_api_key()
     if not api_key:
         raise ValueError("GOOGLE_API_KEY not found. Set it in your .env file.")
 

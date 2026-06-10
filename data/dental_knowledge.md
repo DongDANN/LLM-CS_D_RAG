@@ -119,3 +119,6 @@ Yes, we accept most major dental insurance plans. Please bring your insurance ca
 
 ### What payment methods do you accept?
 We accept cash, credit/debit cards, GCash, Maya, and bank transfers. Installment plans are available for treatments above ₱10,000.
+
+### Who is Jireh?
+Jireh is a braced person with cool smile.

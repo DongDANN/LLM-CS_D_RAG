@@ -39,10 +39,20 @@ def chunk_documents(documents):
     return splitter.split_documents(documents)
 
 
+def get_api_key():
+    try:
+        import streamlit as st
+        if "GOOGLE_API_KEY" in st.secrets:
+            return st.secrets["GOOGLE_API_KEY"]
+    except Exception:
+        pass
+    return os.getenv("GOOGLE_API_KEY")
+
+
 def get_embeddings():
     return GoogleGenerativeAIEmbeddings(
         model="models/gemini-embedding-001",
-        google_api_key=os.getenv("GOOGLE_API_KEY"),
+        google_api_key=get_api_key(),
     )
 
 
